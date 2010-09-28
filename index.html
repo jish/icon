@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Icon</title>
+    <style type="text/css" media="screen">
+      #icon_board {
+        border: 1px solid #333;
+        border-width: 1px 0 0 1px;
+        width: 264px; 
+        height: 264px;
+      }
+
+      #icon_board div {
+        border: 1px solid #333;
+        border-width: 0 1px 1px 0;
+        float: left;
+        width: 32px; height: 32px;
+      }
+
+      #icon_board div.on {
+        background-color: #333;
+      }
+
+      #icon_board div.off {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="icon_board"></div>
+
+    <script type="text/javascript" charset="utf-8">
+      function init() {
+        var board = document.getElementById('icon_board');
+
+        for (var i = 64; i > 0; i--) {
+          var div = document.createElement('div');
+          div.onclick = click;
+          board.appendChild(div);
+        };
+      }
+
+      function click() {
+        if (this.className === 'on') {
+          this.className = 'off';
+        } else {
+          this.className = 'on';
+        }
+      }
+
+      if (window.addEventListener) {
+        window.addEventListener('load', init, false);
+      }
+    </script>
+  </body>
+</html>
